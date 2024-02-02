@@ -1,18 +1,22 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Header from './src/components/header';
+import Header from '/src/components/header';
 import { Button } from 'react-native-web';
-import CompButton from './src/components/button/button';
+import CompButton from '/src/components/button/button';
+import { NavigationContainer } from '@react-navigation/native';
+import Routes from './src/navigation/nav';
 
 const App = () => {
   return (
+    <NavigationContainer>
     <View style={styles.container}>
       <Header 
         onMenuPress={() => console.log('Menu Pressed')}
         onProfilePress={() => console.log('Profile Pressed')}
-      />
+        />
       <CompButton/>
     </View>
+    </NavigationContainer>
   );
 };
 

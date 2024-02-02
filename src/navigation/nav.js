@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Page1 from './page1';
-import Page2 from './page2';
+import './page1.js';
+import './page2.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 Icon.loadFont()
 
