@@ -1,22 +1,19 @@
 import React from 'react';
-import { Button, Alert } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { Pressable, Alert } from 'react-native';
 
-const CompButton = () => {
-  const navigation = useNavigation();
-
-  const handleButtonClick = () => {
+const CompButton = ({ navigation }) => {
     Alert.alert('Button with adjusted color pressed');
     // Naviguer vers l'écran suivant
-    navigation.navigate('page1');
-  };
+    console.log('Boutton cliqué');
+    navigation.navigate('../../navigation/Page1');
 
   return (
     <>
-      <Button
+      <Pressable
         title="Je créé mon compte"
         color="#008000"
-        onClick={handleButtonClick}
+        //onClick={handleButtonClick()}
+        onPress={ () => navigation.navigate("page1")}
       />
     </>
   );

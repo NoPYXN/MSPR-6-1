@@ -1,21 +1,26 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Header from '/src/components/header';
-import { Button } from 'react-native-web';
-import CompButton from '/src/components/button/button';
 import { NavigationContainer } from '@react-navigation/native';
-import Routes from './src/navigation/nav';
+import { createStackNavigator } from '@react-navigation/stack'; 
+import Page1 from './screens/Page1';
+import Page2 from './screens/Page2';
+
+const Stack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
     <View style={styles.container}>
-      <Header 
-        onMenuPress={() => console.log('Menu Pressed')}
-        onProfilePress={() => console.log('Profile Pressed')}
-        />
-      <CompButton/>
-    </View>
+        <Header 
+          onMenuPress={() => console.log('Menu Pressed')}
+          onProfilePress={() => navigation.navigate('page1')}
+          />
+        <Stack.Navigator>
+          <Stack.Screen name="page1" component={Page1} />
+          <Stack.Screen name="page2" component={Page2} />
+        </Stack.Navigator>
+      </View>
     </NavigationContainer>
   );
 };
@@ -26,12 +31,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  welcomeText: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
+  }
 });
 
 export default App;
